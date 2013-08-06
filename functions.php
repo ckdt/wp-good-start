@@ -103,4 +103,8 @@ function gs_chapter_index(){
 }
 
 
+function gs_wouter(){
+	echo "Wouter is awesome";
+}
+
 ?>
