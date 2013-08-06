@@ -104,7 +104,7 @@ function gs_chapter_index(){
 
 
 function gs_wouter(){
-	echo "Wouter is awesome";
+	echo "Ronny is awesome";
 }
 
 ?>
