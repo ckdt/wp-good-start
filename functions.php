@@ -9,7 +9,6 @@ require_once ('inc/theme-plugins.php');
 require_once ('inc/theme-cleanup.php'); 
 
 require_once ('inc/theme-utils.php'); 
-
 /*
 -------------------------------------
  GOOD START - Theme Support
@@ -26,7 +25,6 @@ register_nav_menu('sub-nav', 'Sub Nav');					// Register menu
  GOOD START - Misc Optimisations
 -------------------------------------
 */
-if (!defined('WP_POST_REVISIONS')) define('WP_POST_REVISIONS', 3);
 
 
 /*
@@ -40,13 +38,6 @@ add_filter( 'acf/fields/wysiwyg/toolbars', 'gs_register_toolbar' );
 function gs_register_toolbar( $toolbars )
 {
 	// Uncomment to view format of $toolbars
-	/*
-	echo '< pre >';
-		print_r($toolbars);
-	echo '< /pre >';
-	die;
-	*/
-	
 	$toolbars['Minimal' ] = array();
 	$toolbars['Minimal' ][1] = array('bold' , 'italic' , 'underline', 'link', 'unlink' );
 	
@@ -58,7 +49,6 @@ function gs_register_toolbar( $toolbars )
 	//unset( $toolbars['Basic' ] );
 	return $toolbars;
 }
-
 
 $style_settings = array(
     'quote' => array(
@@ -100,11 +90,6 @@ function gs_chapter_index(){
 	$output .= '</ol>';
 
 	echo $output;
-}
-
-
-function gs_wouter(){
-	echo "Ronny is awesome";
 }
 
 ?>

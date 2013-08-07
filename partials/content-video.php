@@ -9,11 +9,13 @@
 $video_field = get_sub_field('video_url');
 $video = gs_video_embed( $video_field );
 
+$video_style = get_sub_field('video_style');
+
 $caption_field = get_sub_field('video_caption');
 $caption = $caption_field;
 ?>
 
-<div class="content-block video">
+<div class="content-block video <?php echo $video_style; ?>">
 	<div class="container">
 
 <?php if( get_sub_field('video_style') == 'full'): // style: Full ?>

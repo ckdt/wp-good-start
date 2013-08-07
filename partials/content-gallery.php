@@ -35,7 +35,23 @@ if( $images ): ?>
             <?php endforeach; ?>
         </ul>
     </div>
+    <!-- Uitdaging:
+    Meerdere sliders, gekoppeld aan uniek id
+    Relatieve javascript, opbasis van html settings -->
+    
+    <!--<div id="carousel" class="flexslider">
+        <ul class="slides">
+            <?php //foreach( $images as $image ): ?>
+                <li>
+                    <img src="<?php// echo $image['sizes']['thumbnail']; ?>" alt="<?php //echo $image['alt']; ?>" />
+                </li>
+            <?php //endforeach; ?>
+        </ul>
+    </div>-->
+    
+    
 <?php endif; ?>
+
 			</div>
 		</div>
 	</div>

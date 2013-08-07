@@ -4,15 +4,14 @@
  * @subpackage goodstart
  */
 ?>
+
 <?php get_header(); ?>
 
 <?php if ( have_posts() ): ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-<?php gs_chapter_index(); ?>
-
-<?php if ( get_field('content_blocks') ): ?>
+<?php if ( $cb = get_field('content_blocks') ): ?>
 
 <?php while( has_sub_field('content_blocks') ): ?>
 

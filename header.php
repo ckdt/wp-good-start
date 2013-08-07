@@ -25,3 +25,5 @@
 </head>
 <body <?php body_class(); ?>>
 	<div class="site">
+		
+		<?php gs_chapter_index(); ?>

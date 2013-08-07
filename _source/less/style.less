@@ -85,10 +85,32 @@ body{
 	.square(100%);
 }
 
-.quote{
-	position: relative;
-	height: 50%;
-	background: yellow;
+.chapters{
+	position: fixed;
+	top: 20%;
+	right: 0;
+	width: 200px;
+	padding: 10px 30px;
+	background: #333;
+	overflow: hidden;
+	z-index: 999;
+	color: @white;
+}
+
+.chapters a{
+	color: @white;
+}
+
+.chapter{
+	text-align: center;
+	padding: 2% 0;
+	background: #ffffaa;
+	font-size: 30px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+.chapter a{
+	color: #333;
 }
 
 .caption p{
@@ -96,4 +118,8 @@ body{
 	padding: 10px;
 	font-style: italic;
 	overflow: hidden;	
+}
+
+.video.full{
+	background: #000;
 }

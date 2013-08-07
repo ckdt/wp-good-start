@@ -7,36 +7,75 @@
 
 <?php
 $images = get_sub_field('images');
-
-echo '<pre>';
-var_dump($images);
-echo '</pre>';
-
-/*$gallery_style = get_sub_field('gallery_style');
-$style ='';
-if( $gallery_style == 'full' ){ $style = 'span12'; }
-if( $gallery_style == 'centered' ){ $style = 'span8 offset2'; }
-if( $gallery_style == 'inline' ){ $style = 'span6 offset3'; }
-*/
 ?>
 
 <div class="content-block images">
 	<div class="container">
 
 		<div class="row">
+<?php 
+if( $images ): 
 
-<?php
- 
-if( $images ): ?>
-        <ul>
-            <?php foreach( $images as $image ): ?>
-                <li>
-                    <img src="<?php echo $image['sizes']['image1170x780']; ?>" alt="<?php echo $image['alt']; ?>" />
-                    <p><?php echo $image['caption']; ?></p>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-<?php endif; ?>
+// global vars
+$total = count($images);
+$output = '';
+
+foreach( $images as $image ):
+
+    $caption = $image['image_caption'];
+    $image = $image['image_field']; 
+    $count ++;
+
+    if($total === 1):
+
+        $output = '<div class="offset3 span6">';
+        $output .= '<img src="'.$image['sizes']['image1170x780'].'" alt="'.$image['alt'].'"  title="'.$image['title'].'" />';    
+        $output .= '<div class="caption">'.$caption.'</div>';
+        $output .= '</div>';   
+
+    elseif($total === 2):
+
+        // first has offset
+        if( $count === 1 ){ 
+            $output = '<div class="offset2 span4">';
+        }else{
+            $output .= '<div class="span4">';
+        }
+        $output .= '<img src="'.$image['sizes']['image1170x780'].'" alt="'.$image['alt'].'"  title="'.$image['title'].'" />';    
+        $output .= '<div class="caption">'.$caption.'</div>';
+        $output .= '</div>';   
+
+    elseif($total === 3):
+       
+        // first has offset
+        if( $count === 1 ){ 
+            $output = '<div class="span4">';
+        }else{
+            $output .= '<div class="span4">';
+        }
+        $output .= '<img src="'.$image['sizes']['image1170x780'].'" alt="'.$image['alt'].'"  title="'.$image['title'].'" />';    
+        $output .= '<div class="caption">'.$caption.'</div>';
+        $output .= '</div>';   
+
+     elseif($total === 4):
+        
+        // first has offset
+        if( $count === 1 ){ 
+            $output = '<div class="span3">';
+        }else{
+            $output .= '<div class="span3">';
+        }
+        $output .= '<img src="'.$image['sizes']['image1170x780'].'" alt="'.$image['alt'].'"  title="'.$image['title'].'" />';    
+        $output .= '<div class="caption">'.$caption.'</div>';
+        $output .= '</div>';   
+    endif;
+
+endforeach;
+
+echo $output;
+
+endif; 
+?>
 
 
 		</div>
