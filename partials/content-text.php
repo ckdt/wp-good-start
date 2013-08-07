@@ -14,6 +14,8 @@ $figure = '<img src="'.$figure_image[0].'" alt="'.get_the_title($figure_field).'
 
 $caption_field = get_sub_field('text_caption');
 $caption = $caption_field;
+
+$offset = 'offset3';
 ?>
 
 <div class="content-block text">
@@ -32,7 +34,7 @@ $caption = $caption_field;
 <?php endif; ?>
 <?php endif; ?>
 
-<?php $offset = ( get_sub_field('text_caption_position')  == 'right' ? 'offset3' : '' ); ?>
+<?php $offset = ( get_sub_field('text_caption_position')  == 'left' ? '' : 'offset3' ); ?>
 			<div class="span6 <?php echo $offset; ?>">
 				<?php echo $text; ?>    
 			</div>
