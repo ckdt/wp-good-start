@@ -13,12 +13,27 @@ $video_style = get_sub_field('video_style');
 
 $caption_field = get_sub_field('video_caption');
 $caption = $caption_field;
+
+$style ='';
+if( $video_style == 'fs' ){ 
+	$style = 'container-fluid'; 
+}else{
+	$style = 'container'; 
+}
+
 ?>
 
 <div class="content-block video <?php echo $video_style; ?>">
-	<div class="container">
+	<div class="<?php echo $style; ?>">
 
-<?php if( get_sub_field('video_style') == 'full'): // style: Full ?>
+<?php if( get_sub_field('video_style') == 'fs'): // style: Full Screen ?>
+		<div class="row-fluid">
+			<div class="span12">
+				<?php echo $video; ?>    
+			</div>
+		</div>
+
+<?php elseif( get_sub_field('video_style') == 'full'): // style: Full Width ?>
 		<div class="row">
 			<div class="span12">
 				<?php echo $video; ?>    
@@ -31,7 +46,6 @@ $caption = $caption_field;
 		</div>
 
 <?php elseif( get_sub_field('video_style') == 'centered'): // style: Centered ?>
-
 		<div class="row">
 <?php if( get_sub_field('video_caption_position') == 'left'): // caption: Left ?>
 			<div class="caption span2">
@@ -72,8 +86,6 @@ $caption = $caption_field;
 <?php endif; ?>
 
 		</div>
-
 <?php endif;?>
-
 	</div>
 </div>

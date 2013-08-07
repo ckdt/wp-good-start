@@ -11,6 +11,7 @@ $images = get_sub_field('gallery_content');
 $gallery_style = get_sub_field('gallery_style');
 
 $style ='';
+if( $gallery_style == 'fs' ){ $style = 'span12'; }
 if( $gallery_style == 'full' ){ $style = 'span12'; }
 if( $gallery_style == 'centered' ){ $style = 'span8 offset2'; }
 if( $gallery_style == 'inline' ){ $style = 'span6 offset3'; }
@@ -18,10 +19,16 @@ if( $gallery_style == 'inline' ){ $style = 'span6 offset3'; }
 ?>
 
 <div class="content-block gallery <?php echo $gallery_style; ?>">
-	<div class="container">
 
-		<div class="row">
-			<div class="image-gallery <?php echo $style; ?>">
+<?php if( $gallery_style == 'fs' ): // style: Full Screen ?>
+	<div class="container-fluid">
+		<div class="row-fluid">
+<?php else: // style: Other ?>
+    <div class="container">
+        <div class="row">
+<?php endif; ?>
+			
+            <div class="image-gallery <?php echo $style; ?>">
 
 <?php
  
