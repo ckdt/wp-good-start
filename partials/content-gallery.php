@@ -9,6 +9,7 @@
 $images = get_sub_field('gallery_content');
 
 $gallery_style = get_sub_field('gallery_style');
+
 $style ='';
 if( $gallery_style == 'full' ){ $style = 'span12'; }
 if( $gallery_style == 'centered' ){ $style = 'span8 offset2'; }
@@ -16,7 +17,7 @@ if( $gallery_style == 'inline' ){ $style = 'span6 offset3'; }
 
 ?>
 
-<div class="content-block gallery">
+<div class="content-block gallery <?php echo $gallery_style; ?>">
 	<div class="container">
 
 		<div class="row">
