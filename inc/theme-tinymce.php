@@ -3,8 +3,8 @@
 /**
  * Apply styles to the visual editor
  */
-add_filter('mce_css', 'tuts_mcekit_editor_style');
-function tuts_mcekit_editor_style($url) {
+add_filter('mce_css', 'gs_mcekit_editor_style');
+function gs_mcekit_editor_style($url) {
     if ( !empty($url) )
         $url .= ',';
     // Retrieves the plugin directory URL
@@ -16,8 +16,8 @@ function tuts_mcekit_editor_style($url) {
 /**
  * Add "Styles" drop-down
  */
-add_filter( 'mce_buttons_2', 'tuts_mce_editor_buttons' );
-function tuts_mce_editor_buttons( $buttons ) {
+add_filter( 'mce_buttons_2', 'gs_mce_editor_buttons' );
+function gs_mce_editor_buttons( $buttons ) {
     array_unshift( $buttons, 'styleselect' );
     return $buttons;
 }
@@ -25,8 +25,8 @@ function tuts_mce_editor_buttons( $buttons ) {
 /**
  * Add styles/classes to the "Styles" drop-down
  */
-add_filter( 'tiny_mce_before_init', 'tuts_mce_before_init' );
-function tuts_mce_before_init( $settings ) {
+add_filter( 'tiny_mce_before_init', 'gs_mce_before_init' );
+function gs_mce_before_init( $settings ) {
     $style_formats = array(
     	array(
     		'title' => 'Intro',
@@ -35,10 +35,10 @@ function tuts_mce_before_init( $settings ) {
     	),
     	array(
     		'title' => 'Question',
-    		'selector' => 'p',
+    		'inline' => 'span',
     		'classes' => 'question'
     	),
-    	array(
+    	/*array(
     		'title' => 'Caption',
     		'block' => 'div',
     		'classes' => 'caption',
@@ -49,6 +49,7 @@ function tuts_mce_before_init( $settings ) {
     		'selector' => 'p',
     		'classes' => 'quote'
     	),
+        */
     	array(
     		'title' => 'Name',
     		'inline' => 'span',
@@ -62,11 +63,11 @@ function tuts_mce_before_init( $settings ) {
 /*
  * Add custom stylesheet to the website front-end with hook 'wp_enqueue_scripts'
  */
-add_action('wp_enqueue_scripts', 'tuts_mcekit_editor_enqueue');
+//add_action('wp_enqueue_scripts', 'gs_mcekit_editor_enqueue');
 /*
  * Enqueue stylesheet, if it exists.
  */
-function tuts_mcekit_editor_enqueue() {
+function gs_mcekit_editor_enqueue() {
   $StyleUrl = plugin_dir_url(__FILE__).'editor-styles.css'; // Customstyle.css is relative to the current file
   wp_enqueue_style( 'myCustomStyles', $StyleUrl );
 }
